@@ -12,6 +12,9 @@ module.exports = {
         neutral: '#9CA3AF',   
         background: '#F3F4F6' 
       },
+      fontFamily: {
+        sans: ['GreycliffCF', 'sans-serif'],
+      },
     },
   },
   plugins: [],
