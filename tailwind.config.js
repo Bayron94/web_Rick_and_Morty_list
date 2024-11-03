@@ -6,14 +6,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#4F46E5',
-        secondary: '#3B82F6',
+        primary: 
+        {
+          100: '#EEE3FF',
+          600: '#8054C7',
+          700: '#5A3696',
+        },
+        secondary: {
+          600: '#63D838',
+        },
         accent: '#F59E0B',
         neutral: '#9CA3AF',   
-        background: '#F3F4F6' 
+        background: '#FFFFFF',
+        gray: '#F3F4F6',
+        divider: '#E5E7EB',
+        border: '#D1D5DB',
+        text: {
+          600: '#111827',
+          400: '#6B7280',
+        }
       },
       fontFamily: {
-        sans: ['GreycliffCF', 'sans-serif'],
+        greycliff: ['GreycliffCF', 'sans-serif'],
       },
     },
   },

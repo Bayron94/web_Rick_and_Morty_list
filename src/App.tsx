@@ -1,12 +1,17 @@
-import './App.css'
-import { CharacterList } from './components/test'
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
+import { ApolloProvider } from "@apollo/client";
+import client from "./services/apolloClient";
 
-function App() {
-  // const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <CharacterList />
-  )
-}
+    <ApolloProvider client={client}>
+      <Router>
+        <AppRoutes />
+      </Router>
+    </ApolloProvider>
+  );
+};
 
-export default App
+export default App;
