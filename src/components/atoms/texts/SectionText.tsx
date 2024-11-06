@@ -2,9 +2,11 @@ import React from "react";
 import { Text } from "./Text";
 import { TextProps } from "../../../interfaces/components/atoms";
 
-export const TitleText: React.FC<TextProps> = ({ children, className }) => {
+export const SectionText: React.FC<TextProps> = ({ children, className }) => {
   return (
-    <Text className={`text-2xl font-bold leading-8 ${className}`}>
+    <Text
+      className={`text-xs font-medium leading-4 text-text-400 ${className}`}
+    >
       {children}
     </Text>
   );

@@ -1,20 +1,61 @@
 import React from "react";
 import { CharacterDetail } from "../organisms/CharacterDetail";
-import { useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { GET_CHARACTER_DETAILS } from "../../services/queries";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { addComment, toggleFavorite } from "../../store/characterSlice";
+import BackButtonIcon from "../../assets/back_button.svg";
 
-export const CharacterDetailPage: React.FC = () => {
+interface CharacterDetailPageProps {
+  characterID?: number;
+}
+
+export const CharacterDetailPage: React.FC<CharacterDetailPageProps> = ({
+  characterID,
+}) => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
-  const { loading, error, data } = useQuery(GET_CHARACTER_DETAILS, {
-    variables: { id },
-  });
+  const selectedId = characterID || id;
+  const character = useAppSelector((state) => state.character);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  const characterSelected = character.characters.find(
+    (c) => c.id == selectedId
+  );
+  const dispatch = useAppDispatch();
 
-  const character = data.character;
+  if (!(character || selectedId)) return <p>Character not found</p>;
 
-  return <CharacterDetail character={character} />;
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavorite(selectedId ?? ""));
+  };
+
+  const handleAddComment = (message: string) => {
+    if (message.trim()) {
+      dispatch(addComment({ id: selectedId ?? "", comment: message }));
+    }
+  };
+
+  if (characterSelected) {
+    return (
+      <div>
+        <button
+          onClick={() => navigate("/")}
+          className="md:hidden text-blue-500 mb-4"
+        >
+          <img
+            src={BackButtonIcon}
+            alt="Filter Icon"
+            className="w-5 h-5 text-purple-800"
+          />
+        </button>
+        <CharacterDetail
+          character={characterSelected}
+          handleAddComment={handleAddComment}
+          handleToggleFavorite={handleToggleFavorite}
+        />
+      </div>
+    );
+  }
+
+  return <p>Error pasar a common</p>;
 };

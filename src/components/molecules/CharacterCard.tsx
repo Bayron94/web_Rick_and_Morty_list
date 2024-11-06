@@ -7,26 +7,26 @@ import { DetailItemText } from "../atoms/texts/DetailItemText";
 
 interface CharacterCardProps {
   character: ICharacter;
-  isStarred: boolean;
   isSelected: boolean;
   onClick: () => void;
+  onToggleFavorite: (id: number) => void;
 }
 
 export const CharacterCard: React.FC<CharacterCardProps> = ({
   character,
   isSelected,
-  isStarred,
   onClick,
+  onToggleFavorite,
 }) => {
   return (
-    <div onClick={onClick} className={"flex flex-col items-left"}>
-      <hr className="w-full border-divider mb-2" />
+    <div className="flex flex-col items-left px-2">
+      <hr className="w-full border-divider mb-2 mx-3" />
       <div
         className={`flex items-center justify-between p-4 rounded-lg cursor-pointer ${
           isSelected ? "bg-primary-100" : "bg-transparent"
         }`}
       >
-        <div className="flex items-center flex-1">
+        <div onClick={onClick} className="flex items-center flex-1">
           <img
             src={character.image}
             alt={character.name}
@@ -39,11 +39,13 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
           </div>
         </div>
 
-        {isStarred ? (
-          <HeartFilledIcon isSelected={isSelected} />
-        ) : (
-          <HeartOutlineIcon isSelected={isSelected} />
-        )}
+        <div onClick={() => onToggleFavorite(character.id)}>
+          {character.isFavorite ? (
+            <HeartFilledIcon isSelected={isSelected} />
+          ) : (
+            <HeartOutlineIcon isSelected={isSelected} />
+          )}
+        </div>
       </div>
     </div>
   );
