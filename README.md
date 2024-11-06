@@ -4,7 +4,7 @@
 
 ## Descripción
 
-Esta aplicación es una herramienta desarrollada para [explicar el propósito principal de la app, como "gestionar personajes" o "explorar datos de personajes ficticios"]. Se construyó usando tecnologías modernas, como **React**, **Redux**, y **TailwindCSS**, y utiliza la API pública de [Rick and Morty](https://rickandmortyapi.com/) para obtener y gestionar datos de personajes.
+Esta aplicación es una herramienta desarrollada para efectos de pruebas de conocimiento y destrezas en el area del desarrollo web. Se construyó usando tecnologías modernas, como **React**, **Redux**, y **TailwindCSS**, y utiliza la API pública de [Rick and Morty](https://rickandmortyapi.com/) para obtener y gestionar datos de personajes.
 
 ## Características Principales
 
