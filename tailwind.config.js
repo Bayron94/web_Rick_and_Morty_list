@@ -19,6 +19,7 @@ module.exports = {
         neutral: '#9CA3AF',   
         background: '#FFFFFF',
         gray: '#F3F4F6',
+        grayBackground: '#F9FAFB',
         divider: '#E5E7EB',
         border: '#D1D5DB',
         text: {
