@@ -1,50 +1,33 @@
-# React + TypeScript + Vite
+# Rick and Morty List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Desarrollado por: Bayron Jhohan Ordoñez Buitron**
 
-Currently, two official plugins are available:
+## Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Esta aplicación es una herramienta desarrollada para [explicar el propósito principal de la app, como "gestionar personajes" o "explorar datos de personajes ficticios"]. Se construyó usando tecnologías modernas, como **React**, **Redux**, y **TailwindCSS**, y utiliza la API pública de [Rick and Morty](https://rickandmortyapi.com/) para obtener y gestionar datos de personajes.
 
-## Expanding the ESLint configuration
+## Características Principales
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Visualización de personajes**: La aplicación permite ver una lista de personajes obtenidos desde una API pública.
+- **Filtrado y búsqueda**: Los usuarios pueden buscar personajes por nombre, ordenar los resultados y aplicar filtros específicos, como especie, estado y género.
+- **Favoritos**: Permite marcar personajes como favoritos para destacarlos en la lista.
+- **Detalles del personaje**: Al seleccionar un personaje, se puede ver información detallada del mismo en la sección correspondiente.
+- **Interfaz amigable y responsive**: Diseñada para ser visualmente atractiva en dispositivos tanto móviles como de escritorio.
 
-- Configure the top-level `parserOptions` property like this:
+## Tecnologías Usadas
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **Redux**: Librería para el manejo del estado global de la aplicación.
+- **TailwindCSS**: Framework de CSS para estilos rápidos y personalizables.
+- **Apollo Client**: Para realizar consultas a la API GraphQL de Rick and Morty.
+- **Ract Router Dom**: Para el manejo de rutas y la navegación entre pantallas.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Uso de la Aplicación
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Exploración de personajes**: La pantalla principal muestra una lista de personajes. Los usuarios pueden desplazarse para explorar diferentes personajes.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Búsqueda y filtrado**: En la parte superior, hay un campo de búsqueda y un botón de filtro. Usa el campo de búsqueda para encontrar personajes por nombre. Abre el filtro para aplicar criterios avanzados como especie, estado y género.
+
+- **Favoritos**: Haz clic en el ícono de estrella para marcar un personaje como favorito. Estos personajes aparecerán en una sección separada.
+
+- **Detalles de personajes**: Al hacer clic en un personaje, se muestra más información, incluyendo detalles como especie, estado y género.
